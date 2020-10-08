@@ -1,26 +1,20 @@
+# Description: This program performs sentiment analysis on news articles using TextBlob.
+
 from textblob import TextBlob
 
-# Use this as the sample news summary
-news_summary = """A woman died from treatment delays after a hospital in Germany hit by a cyberattack was forced to turn away emergency patients.
-This is a small sample of the toll from ransomware attacks, in which hackers break into computer networks and freeze the digital information until the targeted organization or city pays for its release.
-Victims have two bad choices: Give in to extortion and hope the criminals didn’t do too much damage, or refuse and risk the hackers releasing or deleting essential information.
-I spoke to Charles Carmakal, an executive with the cybersecurity response company FireEye Mandiant, about the root causes and fixes for ransomware attacks.
-What are the root causes of ransomware?"""
 
-
+# Method Purpose: Given a news summary, extracts polarity and subjectivity metrics, returning both in a readable format.
 def find_sentiment(news_story):
     news = TextBlob(news_story)
-    # for sentence in news.sentences:
-    # print(str(sentence))
-    # print(sentence.sentiment)
-    # print(sentence.sentiment_assessments)
-    # print()
+    # Iterates over each sentence in the news, extracts the sentiment, and stores each inside of a list.
     sentiments = []
     for sentence in news.sentences:
         sentiment = sentence.sentiment
         for metric in sentiment:
             sentiments.append(metric)
 
+    # Every even index in the list corresponds to polarity and the rest relate to subjectivity.
+    # Using this, the polarity_data and subjectivity_data lists are filled accurately.
     polarity_data = []
     subjectivity_data = []
     for i in range(len(sentiments)):
@@ -28,11 +22,12 @@ def find_sentiment(news_story):
             polarity_data.append(sentiments[i])
         else:
             subjectivity_data.append(sentiments[i])
-    # Execute these lines for demonstration
-    # print("Polarity Data (for sentences): " + str(polarity_data))
-    # print("Subjectivity Data (for sentences): " + str(subjectivity_data))
+
+    # The averages of both sentiment lists are calculated.
     polarity_average = calculate_average(polarity_data)
     subjectivity_average = calculate_average(subjectivity_data)
+
+    # Displays the sentiment that relates to the averages on the console.
     print()
     print("FINAL ANALYSIS")
     print("----------------------------------")
@@ -40,10 +35,16 @@ def find_sentiment(news_story):
     print("Subjectivity: " + calculate_sentiment(subjectivity_average, "subjectivity"))
 
 
+# Helper Methods (for the find_sentiment method)
+# -------------------------------------------------------------
+
+# Method Purpose: Given a list with numeric values, calculates and returns the average of all.
 def calculate_average(list):
     return sum(list) / len(list)
 
 
+# Method Purpose: Given an average polarity or subjectivity, uses intervals to calculate accurate sentiments.
+# Note: Polarity and Subjectivity in TextBlob fall in between -1 and 1, this method bases its intervals off of that.
 def calculate_sentiment(sentiment, type):
     sentiment_category = ""
     if type == "polarity":
@@ -86,6 +87,3 @@ def calculate_sentiment(sentiment, type):
         return sentiment_category
     else:
         print("Invalid Input.")
-
-
-# find_sentiment(news_summary)

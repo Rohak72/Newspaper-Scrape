@@ -1,3 +1,6 @@
+# Description: This script extracts ALL the latest articles from the technology section of the New York Times with
+# BeautifulSoup.
+
 import requests
 from bs4 import BeautifulSoup as soup
 
@@ -26,14 +29,8 @@ def get_content_string(url):
             article_list.append(dictionary)
     article_list[0:2] = [''.join(article_list[0:2])]
 
-    # DO THIS
-    # print(len(article_list))
     content_string = article_list[0]
-    # DO THIS FIRST
-    # print(content_string.index("itemListElement"))
     article_index = content_string.index("itemListElement")
-    # DO THIS FIRST
-    # content_string = content_string[article_index:]
     content_string = content_string[article_index + 18:]
     return content_string
 
@@ -47,12 +44,6 @@ def get_content_string(url):
 # 4. Validation techniques are used to equalize the lengths of the start and end indices.
 
 def findOccurrences(content_string):
-    # Write this code BEFORE implementing the list comprehension.
-    # start_indices = []
-    # for i in range(len(content_string)):
-    # if content_string.startswith('https://www.nytimes.com/2020', i):
-    # start_indices.append(i)
-
     start_indices = [i for i in range(len(content_string)) if
                      content_string.startswith('https://www.nytimes.com/2020', i)]
     end_indices = [i for i in range(len(content_string)) if content_string.startswith('.html', i)]
@@ -81,15 +72,3 @@ def get_all_urls(start_indices, end_indices, content_string):
     for i in range(len(start_indices)):
         url_list.append(content_string[start_indices[i]:end_indices[i]])
     return url_list
-
-
-# content_string = get_content_string(my_url)
-# Use this print statement for demonstration.
-# print(content_string)
-# starts, ends = findOccurrences(content_string)
-# Use these two print statements for demonstration.
-# print(starts)
-# print(ends)
-# url_list = get_all_urls(starts, ends)
-# Use this print statement for demonstration.
-# print(url_list)
