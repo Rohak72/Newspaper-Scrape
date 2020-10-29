@@ -28,7 +28,7 @@ def nlp_classification(text):
 
     # Word Inflection
     print("Plural of " + summary.words[1] + " --> " + summary.words[1].pluralize())
-    print("Singular of " + summary.words[17] + " --> " + summary.words[17].singularize())
+    print("Singular of " + summary.words[5] + " --> " + summary.words[5].singularize())
     print()
 
     # Tokenization into sentences
@@ -36,7 +36,7 @@ def nlp_classification(text):
     print()
 
     # Noun Entity Recognition and Chunking
-    nouns = list()
+    nouns = []
     for word, tag in summary.tags:
         if tag == "NN":
             nouns.append(word.lemmatize())
