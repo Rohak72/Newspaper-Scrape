@@ -23,7 +23,7 @@ time.sleep(2)
 
 # Gets all the latest URL's from the NY Times Technology Section. (see news_extract.py for more detail)
 content_string = get_content_string(my_url)
-starts, ends = findOccurrences(content_string)
+starts, ends = find_occurrences(content_string)
 url_list = get_all_urls(starts, ends, content_string)
 
 # Gets the article summary and performs sentiment analysis on the chosen URL.
