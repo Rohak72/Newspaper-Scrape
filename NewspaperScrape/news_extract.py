@@ -43,7 +43,7 @@ def get_content_string(url):
 # 3. Each element of the end_indices list are incremented by 5 in order to get the last character of the hyperlink.
 # 4. Validation techniques are used to equalize the lengths of the start and end indices.
 
-def findOccurrences(content_string):
+def find_occurrences(content_string):
     start_indices = [i for i in range(len(content_string)) if
                      content_string.startswith('https://www.nytimes.com/2020', i)]
     end_indices = [i for i in range(len(content_string)) if content_string.startswith('.html', i)]
