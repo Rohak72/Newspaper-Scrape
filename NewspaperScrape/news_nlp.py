@@ -71,18 +71,10 @@ def calculate_sentiment(sentiment, type):
         if sentiment > 0.75:
             sentiment_category = "Extremely subjective."
         elif sentiment > 0.5:
-            sentiment_category = "Significantly subjective."
-        elif sentiment > 0.3:
             sentiment_category = "Fairly subjective."
-        elif sentiment > 0.1:
-            sentiment_category = "Slightly subjective."
-        elif sentiment < -0.1:
-            sentiment_category = "Slightly subjective."
-        elif sentiment < -0.3:
+        elif sentiment > 0.3:
             sentiment_category = "Fairly objective."
-        elif sentiment < -0.5:
-            sentiment_category = "Significantly objective."
-        elif sentiment < -0.75:
+        elif sentiment > 0.1:
             sentiment_category = "Extremely objective."
         return sentiment_category
     else:
