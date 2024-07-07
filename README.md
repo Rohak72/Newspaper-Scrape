@@ -1,7 +1,7 @@
 # Newspaper-Scrape
 By: Rohak Jain
 
-The Newspaper Scrape Project employs advanced natural language processing techniques, sentiment analysis, and web scraping to extract summaries, metadata, and levels of polarity/subjectivity from articles in the New York Times' technology section.
+The Newspaper Scrape project employs advanced natural language processing techniques, sentiment analysis, and web scraping to extract summaries, metadata, and levels of polarity/subjectivity from articles in the New York Times' technology section. A complete, 15-part video series was made in alignment with this effort; if you're interested, the YouTube playlist can be found [here](https://www.youtube.com/playlist?list=PLvICEeb-TZEFujzRmU8hzXh3lR8Z6gMIW).
 
 Throughout my scripts, I have placed detailed comments explaining what each method does, its function, and relevant explanations on complex lines of code. Additionally, if you'd like to clone or use this repository for yourself, feel free to use GitHub Desktop or PyCharm to copy my code and tweak it to your liking! If you have any questions, feel free to post them in the "Issues" section of the repo and I will try my best to get back to you as soon as possible.
 
